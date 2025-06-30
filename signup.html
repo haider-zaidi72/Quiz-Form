@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background-color: azure;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        div{
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        input{
+            width: 400px;
+            height: 35px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+        button{
+            width: 80px;
+            height: 30px;
+            background-color: gray;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: 600;
+            color: rgb(14, 13, 13)
+            
+        }
+        
+    </style>
+    
+</head>
+<body>
+
+    <div>
+        <form id="signupForm">
+        <label for="">Full Name:</label><br>
+        <input type="text" name="" id="name"><br><br>
+
+        <label for="">Email:</label><br>
+        <input type="email" name="" id="email"><br><br>
+
+        <label for="">Password:</label><br>
+        <input type="password" name="" id="password"><br><br>
+
+        <label for="">Confirm Your Password:</label><br>
+        <input type="password" name="" id="password1"><br><br>
+
+        <button type="submit">Sign Up</button>
+        <button type="button" id="cancelBtn">Cancel</button>
+        </form>
+
+         <p>Already have an account? <a href="signin.html">Sign In</a></p>
+    </div>
+    <script>
+
+   document.addEventListener("DOMContentLoaded", function () {
+  const signupForm = document.getElementById("signupForm");
+  const cancelBtn = document.getElementById("cancelBtn");
+
+  // ✅ Cancel Button Logic
+  if (cancelBtn) {
+    cancelBtn.addEventListener("click", function () {
+      window.location.href = "index.html";
+    });
+  }
+
+  // ✅ Signup Form Submission Logic
+  if (signupForm) {
+    signupForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const password1 = document.getElementById("password1").value;
+
+      // ✅ Check if any field is empty
+      if (!name || !email || !password || !password1) {
+        alert("⚠️ Please fill all fields.");
+        return;
+      }
+
+      // ✅ Check if passwords match
+      if (password1 !== password) {
+        alert("❌ Passwords do not match. Please try again.");
+        return;
+      }
+
+      // ✅ Check if email already exists
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+      const userExists = users.find(u => u.email === email);
+      if (userExists) {
+        alert("⚠️ Email already registered!");
+        return;
+      }
+
+      // ✅ Store user data
+      users.push({ name, email, password });
+      localStorage.setItem("users", JSON.stringify(users));
+
+      alert("🎉 You are successfully registered! Now sign in.");
+      window.location.href = "signin.html";
+    });
+  }
+});
+
+
+</script>
+
+</body>
+</html>
