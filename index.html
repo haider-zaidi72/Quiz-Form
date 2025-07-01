@@ -3,9 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quiz Test</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: opx;
+        }
+        h1{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 20px;
+            margin-right: 20px;
+            margin-left:  20px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            
+        }
+        div{
+            padding: 0px 20px 0px 20px;
+        }
+        p{
+            padding: 0px 20px;
+            display: flex;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            
+        }
+        button{
+            width: 80px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            background-color: gray;
+            font-size: 14px;
+        }
+
+
+    </style>
 </head>
 <body>
     
+    <h1>Quiz Test</h1>
+
+    <div>
+      <img src="./image-1.jpg" width="100%" alt="">
+    </div>
+
+    <p>Sign Up to start Quiz or login if you are a registered student</p>
+    <div class="btn">
+    <button class="signup">Sign Up</button> <button class="signin">Sign In</button>
+    </div>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const signupBtn = document.querySelector(".signup");
+    const signinBtn = document.querySelector(".signin");
+
+    if (signupBtn) {
+      signupBtn.addEventListener("click", function () {
+        window.location.href = "signup.html";
+      });
+    }
+
+    if (signinBtn) {
+      signinBtn.addEventListener("click", function () {
+        window.location.href = "signin.html";
+      });
+    }
+  });
+    </script>
+
 </body>
 </html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    <style>
+        body{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            background-color: azure;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .signinForm{
+            border: 1px solid;
+            padding: 10px;
+        }
+        input{
+          width: 98%;
+          height: 25px;
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            width: 70px;
+            height: 30px;
+            border: none;
+            background-color: gray;
+            border-radius: 5px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    
+
+ 
+
+
+    <div class="signinForm">
+
+        <h1>SIGN IN TO START QUIZ</h1>
+
+        <input type="email" placeholder="Your Email" id="email"><br><br>
+        <input type="Password" id="password" placeholder="Password"><br><br>
+         <div class="btn">
+        <button id="signin">Sign In</button>
+         </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+        const signinBtn = document.getElementById('signin')
+        if(signinBtn){
+            signinBtn.addEventListener('click', function(){
+                window.location.href="quiz.html";
+            });
+        };
+
+        } );
+    </script>
+</body>
+</html>
